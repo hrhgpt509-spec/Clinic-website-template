@@ -1,0 +1,80 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.header h1 {
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-md);
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border-radius: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-text-muted);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.card h2 {
+  color: var(--color-primary);
+  margin-top: 0;
+}
+
+.card p {
+  flex-grow: 1;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.actions {
+  margin-top: var(--space-md);
+}
+
+.primaryLink {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-accent);
+  font-weight: bold;
+  text-decoration: none;
+  padding: var(--space-xs) 0;
+  min-height: var(--touch-target-min);
+}
+
+.primaryLink:hover, .primaryLink:focus-visible {
+  text-decoration: underline;
+  color: var(--color-primary-dark);
+}

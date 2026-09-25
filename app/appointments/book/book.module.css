@@ -1,0 +1,121 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.pageTitle {
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.disclaimer {
+  background-color: var(--color-bg);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-text-muted);
+  padding: var(--space-md);
+  margin-bottom: var(--space-xl);
+  border-radius: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.successMessage {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #137333;
+  padding: var(--space-xl);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.successMessage h2 {
+  margin-top: 0;
+  color: #0d5224;
+}
+
+.form {
+  background: var(--color-surface);
+  border: 1px solid var(--color-text-muted);
+  border-radius: 8px;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.section h2 {
+  margin: 0;
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-lg);
+  border-bottom: 1px solid var(--color-bg);
+  padding-bottom: var(--space-xs);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.formGroup label {
+  font-weight: bold;
+  color: var(--color-text);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: var(--space-sm);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-text-muted);
+  border-radius: 4px;
+  min-height: var(--touch-target-min);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.errorText {
+  color: var(--color-emergency);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+}
+
+.inputError {
+  border-color: var(--color-emergency) !important;
+}
+
+.submitButton {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: var(--font-size-lg);
+  min-height: var(--touch-target-min);
+  cursor: pointer;
+  margin-top: var(--space-md);
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover,
+.submitButton:focus-visible {
+  background: var(--color-primary-dark);
+  text-decoration: underline;
+}

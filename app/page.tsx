@@ -1,69 +1,133 @@
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
+import { fetchDepartments, fetchDoctors } from '@/lib/mockData';
+import styles from './home.module.css';
 
-export default function Home() {
+export default async function HomePage() {
+  const [departments, doctors] = await Promise.all([
+    fetchDepartments(),
+    fetchDoctors()
+  ]);
+
+  // Use a subset for the homepage preview
+  const previewDoctors = doctors.slice(0, 3);
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "MedicalOrganization",
+    "name": "[Clinic Name]",
+    "url": "https://example-clinic.com",
+    "telephone": "[Phone Placeholder]",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[Street Address Placeholder]",
+      "addressLocality": "[City Placeholder]",
+      "addressRegion": "[State Placeholder]",
+      "postalCode": "[Zip Placeholder]",
+      "addressCountry": "[Country Placeholder]"
+    },
+    "openingHours": "[Placeholder]"
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className={styles.container}>
+      {/* TEMPLATE: Replace all placeholder values with real clinic data before launch */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      {/* 1 & 2. Hero Section */}
+      <section className={`${styles.section} ${styles.hero}`} aria-labelledby="hero-title">
+        <div className={styles.heroContent}>
+          <h1 id="hero-title">Welcome to [Clinic Name]</h1>
+          <p>Providing exceptional healthcare services for you and your family.</p>
+          <div className={styles.heroActions}>
+            <Link href="/appointments/book" className={styles.primaryCta}>
+              Book an Appointment
+            </Link>
+            <Link href="/doctors" className={styles.secondaryCta}>
+              Find a Doctor
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* 3. Emergency / Quick Contact */}
+      <section className={`${styles.section} ${styles.emergencyContact}`} aria-labelledby="emergency-title">
+        <h2 id="emergency-title">Need Immediate Care?</h2>
+        <p>If you are experiencing a medical emergency, please call <strong>[Emergency Number Placeholder]</strong> or visit the nearest emergency room.</p>
+        <p>For urgent clinic inquiries, call: <strong><a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a></strong></p>
+      </section>
+
+      {/* 4. Services Overview */}
+      <section className={`${styles.section} ${styles.services}`} aria-labelledby="services-title">
+        <h2 id="services-title">Our Services</h2>
+        <div className={styles.grid}>
+          {departments.map(dept => (
+            <div key={dept.id} className={styles.card}>
+              <h3>{dept.name}</h3>
+              <p>{dept.description}</p>
+            </div>
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* 5. Doctor Discovery */}
+      <section className={`${styles.section} ${styles.doctors}`} aria-labelledby="doctors-title">
+        <h2 id="doctors-title">Meet Our Specialists</h2>
+        <div className={styles.grid}>
+          {previewDoctors.map((doc) => (
+            <div key={doc.id} className={styles.card}>
+               <div className={styles.cardHeader}>
+                  {doc.imageUrl && (
+                    <Image
+                      src={doc.imageUrl}
+                      alt={`Portrait of Dr. ${doc.firstName} ${doc.lastName}`}
+                      width={64}
+                      height={64}
+                      className={styles.avatar}
+                      unoptimized
+                    />
+                  )}
+                  <div className={styles.cardInfo}>
+                    <h3>Dr. {doc.firstName} {doc.lastName}</h3>
+                    <span className={styles.badge}>{doc.specialty}</span>
+                  </div>
+                </div>
+            </div>
+          ))}
+        </div>
+        <div className={styles.centerAction}>
+          <Link href="/doctors" className={styles.secondaryCta}>View All Doctors</Link>
+        </div>
+      </section>
+
+      {/* 6. Trust/Information Section */}
+      <section className={`${styles.section} ${styles.trust}`} aria-labelledby="trust-title">
+        <h2 id="trust-title">Why Choose Us?</h2>
+        <ul className={styles.trustList}>
+          <li>Experienced and compassionate staff.</li>
+          <li>State-of-the-art facilities.</li>
+          <li>Patient-centered approach to healthcare.</li>
+        </ul>
+      </section>
+
+      {/* 7. Location / Contact */}
+      <section className={`${styles.section} ${styles.location}`} aria-labelledby="location-title">
+        <h2 id="location-title">Visit Us</h2>
+        <address className={styles.addressBox}>
+          <p><strong>[Clinic Name]</strong></p>
+          <p>[Street Address Placeholder]</p>
+          <p>[City, State, Zip Placeholder]</p>
+          <p>Phone: <a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a></p>
+        </address>
+        <p>Operating Hours: [Hours Placeholder]</p>
+      </section>
+
+      {/* 8. Final CTA */}
+      <section className={`${styles.section} ${styles.finalCta}`} aria-labelledby="final-cta-title">
+        <h2 id="final-cta-title">Ready to take the next step?</h2>
+        <Link href="/appointments/book" className={styles.primaryCta}>
+          Schedule Your Visit
+        </Link>
+      </section>
     </div>
   );
 }

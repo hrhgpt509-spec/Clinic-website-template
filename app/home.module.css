@@ -1,0 +1,184 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.section {
+  padding: var(--space-lg) var(--space-md);
+  border-radius: 8px;
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary-dark);
+}
+
+.hero {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.heroContent h1 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.heroContent p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+}
+
+.primaryCta {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 4px;
+  min-height: var(--touch-target-min);
+  line-height: calc(var(--touch-target-min) - var(--space-sm) * 2);
+}
+
+.primaryCta:hover, .primaryCta:focus-visible {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.secondaryCta {
+  display: inline-block;
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 4px;
+  min-height: var(--touch-target-min);
+  line-height: calc(var(--touch-target-min) - var(--space-sm) * 2);
+  border: 2px solid var(--color-primary);
+}
+
+.secondaryCta:hover, .secondaryCta:focus-visible {
+  text-decoration: underline;
+  background-color: var(--color-bg);
+}
+
+.emergencyContact {
+  background-color: var(--color-emergency);
+  color: var(--color-surface);
+}
+
+.emergencyContact h2 {
+  color: var(--color-surface);
+}
+
+.emergencyContact a {
+  color: var(--color-surface);
+  text-decoration: underline;
+  font-weight: bold;
+  min-height: var(--touch-target-min);
+  display: inline-block;
+}
+
+.services, .doctors, .trust, .location, .finalCta {
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid var(--color-text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid var(--color-text-muted);
+  border-radius: 8px;
+  padding: var(--space-md);
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.cardHeader {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-surface);
+}
+
+.cardInfo h3 {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--color-surface);
+  color: var(--color-text);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 16px;
+  font-size: var(--font-size-sm);
+  border: 1px solid var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+.centerAction {
+  margin-top: var(--space-lg);
+  text-align: center;
+}
+
+.trustList {
+  padding-left: var(--space-lg);
+  line-height: 1.8;
+}
+
+.addressBox {
+  font-style: normal;
+  line-height: 1.6;
+  background: var(--color-bg);
+  padding: var(--space-md);
+  border-radius: 4px;
+  margin-bottom: var(--space-md);
+}
+
+.finalCta {
+  text-align: center;
+  background-color: var(--color-bg);
+}

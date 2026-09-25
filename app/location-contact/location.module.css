@@ -1,0 +1,185 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.pageHeader h1 {
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.pageHeader p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+}
+
+.emergencyPanel {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 4px;
+  color: #856404;
+}
+
+.emergencyPanel strong {
+  font-weight: bold;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .contentGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-text-muted);
+  border-radius: 8px;
+  padding: var(--space-lg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-bg);
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.addressBox {
+  font-style: normal;
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.addressBox p {
+  margin: var(--space-xs) 0;
+}
+
+.hoursTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hoursTable th, .hoursTable td {
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--color-bg);
+  text-align: left;
+}
+
+.hoursTable th {
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+.mapPlaceholder {
+  background-color: var(--color-bg);
+  border: 2px dashed var(--color-text-muted);
+  border-radius: 8px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+/* Contact Form Styles */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.formGroup label {
+  font-weight: bold;
+  color: var(--color-text);
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: var(--space-sm);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-text-muted);
+  border-radius: 4px;
+  min-height: var(--touch-target-min);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.errorText {
+  color: var(--color-emergency);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+}
+
+.inputError {
+  border-color: var(--color-emergency) !important;
+}
+
+.submitButton {
+  background: var(--color-primary);
+  color: var(--color-surface);
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: var(--font-size-base);
+  min-height: var(--touch-target-min);
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.submitButton:hover,
+.submitButton:focus-visible {
+  background: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+.successMessage {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #137333;
+  padding: var(--space-lg);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.successMessage p {
+  margin: var(--space-xs) 0;
+}

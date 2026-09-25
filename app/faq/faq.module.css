@@ -1,0 +1,109 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.pageHeader h1 {
+  color: var(--color-primary-dark);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.pageHeader p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqSection {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-text-muted);
+  border-radius: 8px;
+  padding: var(--space-xl);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.categoryTitle {
+  color: var(--color-primary);
+  margin-top: 0;
+  border-bottom: 2px solid var(--color-bg);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-size-lg);
+}
+
+.questionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.qaPair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.qaPair h3 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.qaPair p {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.qaPair a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.ctaSection {
+  background-color: var(--color-bg);
+  text-align: center;
+  padding: var(--space-xl);
+  border-radius: 8px;
+  border: 1px solid var(--color-text-muted);
+}
+
+.ctaSection h2 {
+  color: var(--color-primary-dark);
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  border: none;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+  text-decoration: none;
+  font-weight: bold;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 4px;
+  min-height: var(--touch-target-min);
+  margin-top: var(--space-md);
+}
+
+.primaryCta:hover,
+.primaryCta:focus-visible {
+  text-decoration: underline;
+  opacity: 0.9;
+}
